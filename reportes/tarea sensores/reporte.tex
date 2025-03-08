@@ -10,7 +10,7 @@
 \usepackage{tabularx}	% Tablas avanzadas
 \usepackage{threeparttable}
 \usepackage{hyperref}	% Hipervínculos
-
+\usepackage{float}
 %-------------------------------------------
 % Otros paquetes útiles (personaliza según tus necesidades)
 %-------------------------------------------
@@ -51,11 +51,16 @@
 \input{secciones/introduccion}
 \input{secciones/sensores_internos}
 \input{secciones/sensores_externos}
-
+\input{secciones/Giroscopio}
+\input{secciones/Acelerómetro}
+\input{secciones/Magnetómetro}
+\input{secciones/LiDAR}
+\input{secciones/Conclusiones}
 
 %-------------------------------------------
 % Bibliografía
 %-------------------------------------------
+\nocite{*}
 \bibliographystyle{IEEEtran}  % Estilo de bibliografía IEEE
 % La bibliografía se tomará del archivo "fuentes.bib"
 \bibliography{fuentes}
