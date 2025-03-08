@@ -1,12 +1,12 @@
 # Archivos de MATLAB
-*.asv
-*.mex*
-slprj/
-*.mlobj
-*.mldatx
-codegen/
-*.p
-*.mexw64
+#*.asv
+#*.mex*
+#slprj/
+#*.mlobj
+#*.mldatx
+#codegen/
+#*.p
+#*.mexw64
 
 # Archivos de Python
 venv/
@@ -19,7 +19,7 @@ __pycache__/
 *.o
 *.a
 *.so
-*.exe
+#*.exe
 build/
 dist/
 
@@ -31,23 +31,23 @@ dist/
 
 # Archivos de LaTeX
 # Archivos temporales y de compilación de LaTeX
-*.aux
-*.log
-*.out
+#*.aux
+#*.log
+#*.out
 *.toc
 *.lof
 *.lot
 *.fls
 *.fdb_latexmk
 *.synctex.gz
-*.bbl
+#*.bbl
 *.blg
 *.nav
 *.snm
 *.vrb
 *.dvi
 *.ps
-*.pdf
+#*.pdf
 *.xdv
 *.acn
 *.acr
@@ -79,7 +79,7 @@ dist/
 *.synctex(busy)*
 
 # Archivos de TeXstudio
-*.gz
-*.nav
-*.snm
-*.vrb
+#*.gz
+#*.nav
+#*.snm
+#*.vrb
