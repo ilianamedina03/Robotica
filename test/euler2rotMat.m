@@ -10,8 +10,6 @@ phi = euler(1,:);      % phi:   rotación alrededor del eje X
 theta = euler(2,:);    % theta: rotación alrededor del eje Y
 psi = euler(3,:);      % psi:   rotación alrededor del eje Z
 if secuencia == "XYZ"
-    R =[cosd(theta)*cosd(psi),  -cosd(theta)*sind(psi), sind(theta);
-          cosd(phi)*sind(psi) + sind(phi)*sind(theta)*cosd(psi), cosd(phi)*cosd(psi) - sind(phi)*sind(theta)*sind(psi), -sind(phi)*cosd(theta);
-          sind(phi)*sind(psi) - cosd(phi)*sind(theta)*cosd(psi), sind(phi)*cosd(psi) + cosd(phi)*sind(theta)*sind(psi), cosd(phi)*cosd(theta)]
+    R =Rx(phi) * Ry(theta) * Rz(psi);
 end
 
