@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.2.16)  9 MAR 2025 19:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.2.16)  9 MAR 2025 23:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -572,10 +572,6 @@ File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 ) (reporte.aux
 LaTeX Info: Redefining \. on input line 11.
 LaTeX Info: Redefining \% on input line 11.
-
-
-LaTeX Warning: Label `fig:Robots' multiply defined.
-
 )
 \openout1 = `reporte.aux'.
 
@@ -685,7 +681,7 @@ Package epstopdf Info: Source file: <portada/tecnm.eps>
 nverted-to.pdf portada/tecnm.eps>
 (epstopdf)             \includegraphics on input line 6.
 Package epstopdf Info: Output file is already uptodate.
-<portada/tecnm-eps-converted-to.pdf, id=51, 83.31125pt x 37.13875pt>
+<portada/tecnm-eps-converted-to.pdf, id=47, 83.31125pt x 37.13875pt>
 File: portada/tecnm-eps-converted-to.pdf Graphic file (type pdf)
 <use portada/tecnm-eps-converted-to.pdf>
 Package pdftex.def Info: portada/tecnm-eps-converted-to.pdf  used on input line
@@ -701,18 +697,18 @@ Package epstopdf Info: Source file: <portada/SEP.eps>
 erted-to.pdf portada/SEP.eps>
 (epstopdf)             \includegraphics on input line 7.
 Package epstopdf Info: Output file is already uptodate.
-<portada/SEP-eps-converted-to.pdf, id=52, 561.09625pt x 173.64874pt>
+<portada/SEP-eps-converted-to.pdf, id=48, 561.09625pt x 173.64874pt>
 File: portada/SEP-eps-converted-to.pdf Graphic file (type pdf)
 <use portada/SEP-eps-converted-to.pdf>
 Package pdftex.def Info: portada/SEP-eps-converted-to.pdf  used on input line 7
 .
 (pdftex.def)             Requested size: 137.90215pt x 42.67912pt.
-<portada/ith.jpg, id=53, 173.14688pt x 176.15813pt>
+<portada/ith.jpg, id=49, 173.14688pt x 176.15813pt>
 File: portada/ith.jpg Graphic file (type jpg)
 <use portada/ith.jpg>
 Package pdftex.def Info: portada/ith.jpg  used on input line 8.
 (pdftex.def)             Requested size: 55.93124pt x 56.9055pt.
-<img/alexander.jpg, id=54, 1069.9975pt x 1606.0pt>
+<img/alexander.jpg, id=50, 1069.9975pt x 1606.0pt>
 File: img/alexander.jpg Graphic file (type jpg)
 <use img/alexander.jpg>
 Package pdftex.def Info: img/alexander.jpg  used on input line 55.
@@ -723,17 +719,17 @@ LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 5
 (C:\Users\ilian\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-<img/iliana.jpg, id=55, 737.75626pt x 903.375pt>
+<img/iliana.jpg, id=51, 737.75626pt x 903.375pt>
 File: img/iliana.jpg Graphic file (type jpg)
 <use img/iliana.jpg>
 Package pdftex.def Info: img/iliana.jpg  used on input line 59.
 (pdftex.def)             Requested size: 69.70482pt x 85.35826pt.
-<img/itzel.jpg, id=56, 677.53125pt x 907.13907pt>
+<img/itzel.jpg, id=52, 677.53125pt x 907.13907pt>
 File: img/itzel.jpg Graphic file (type jpg)
 <use img/itzel.jpg>
 Package pdftex.def Info: img/itzel.jpg  used on input line 63.
 (pdftex.def)             Requested size: 63.74583pt x 85.35826pt.
-<img/luisa.jpg, id=57, 1204.5pt x 1604.99625pt>
+<img/luisa.jpg, id=53, 1204.5pt x 1604.99625pt>
 File: img/luisa.jpg Graphic file (type jpg)
 <use img/luisa.jpg>
 Package pdftex.def Info: img/luisa.jpg  used on input line 67.
@@ -744,79 +740,105 @@ Package pdftex.def Info: img/luisa.jpg  used on input line 67.
 ian/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc} <./portada/tecn
 m-eps-converted-to.pdf> <./portada/SEP-eps-converted-to.pdf> <./portada/ith.jpg
 > <./img/alexander.jpg> <./img/iliana.jpg> <./img/itzel.jpg> <./img/luisa.jpg>]
-) (secciones/introduccion.tex
-
-LaTeX Warning: Reference `sec:conclusion' on page 1 undefined on input line 4.
-
-) (secciones/Ejercicio1.tex
+) (secciones/introduccion.tex) (secciones/Ejercicio1.tex
 
 LaTeX Font Warning: Font shape `T1/lmr/bx/sc' undefined
 (Font)              using `T1/lmr/bx/n' instead on input line 1.
 
-<img/Ej1.png, id=71, 373.99725pt x 446.26724pt>
+<img/Ej1.png, id=67, 373.99725pt x 446.26724pt>
 File: img/Ej1.png Graphic file (type png)
 <use img/Ej1.png>
 Package pdftex.def Info: img/Ej1.png  used on input line 9.
 (pdftex.def)             Requested size: 206.39685pt x 246.2853pt.
-<img/Ej12.png, id=73, 317.38576pt x 352.31625pt>
+<img/Ej12.png, id=69, 298.11375pt x 316.18124pt>
 File: img/Ej12.png Graphic file (type png)
 <use img/Ej12.png>
 Package pdftex.def Info: img/Ej12.png  used on input line 14.
-(pdftex.def)             Requested size: 206.39685pt x 229.11574pt.
+(pdftex.def)             Requested size: 232.19843pt x 246.27301pt.
+<img/Ej13.jpg, id=70, 554.82281pt x 549.55313pt>
+File: img/Ej13.jpg Graphic file (type jpg)
+<use img/Ej13.jpg>
+Package pdftex.def Info: img/Ej13.jpg  used on input line 21.
+(pdftex.def)             Requested size: 361.19843pt x 357.76714pt.
 ) (secciones/Ejercicio2.tex
-<img/Ej2.png, id=74, 314.97675pt x 293.29575pt>
+
+[1 <./img/Ej1.png> <./img/Ej12.png>]
+<img/Ej2.png, id=83, 356.532pt x 307.74976pt>
 File: img/Ej2.png Graphic file (type png)
 <use img/Ej2.png>
 Package pdftex.def Info: img/Ej2.png  used on input line 9.
-(pdftex.def)             Requested size: 206.39685pt x 192.1929pt.
-<img/Ej22.png, id=75, 347.49825pt x 280.6485pt>
+(pdftex.def)             Requested size: 206.39685pt x 178.16156pt.
+<img/Ej22.png, id=84, 275.8305pt x 187.902pt>
 File: img/Ej22.png Graphic file (type png)
 <use img/Ej22.png>
 Package pdftex.def Info: img/Ej22.png  used on input line 14.
-(pdftex.def)             Requested size: 206.39685pt x 166.69458pt.
+(pdftex.def)             Requested size: 232.19843pt x 158.17778pt.
+<img/Ej23.jpg, id=85, 578.16pt x 555.57562pt>
+File: img/Ej23.jpg Graphic file (type jpg)
+<use img/Ej23.jpg>
+Package pdftex.def Info: img/Ej23.jpg  used on input line 20.
+(pdftex.def)             Requested size: 361.19843pt x 347.08978pt.
 ) (secciones/Ejercicio3.tex
 
-[1 <./img/Ej1.png> <./img/Ej12.png>]
-<img/Ej3.png, id=88, 310.15875pt x 271.61475pt>
+[2 <./img/Ej13.jpg> <./img/Ej2.png> <./img/Ej22.png>]
+<img/Ej3.png, id=94, 310.15875pt x 271.61475pt>
 File: img/Ej3.png Graphic file (type png)
 <use img/Ej3.png>
 Package pdftex.def Info: img/Ej3.png  used on input line 8.
 (pdftex.def)             Requested size: 206.39685pt x 180.74586pt.
-<img/Ej32.png, id=89, 392.667pt x 264.99pt>
+<img/Ej32.png, id=95, 392.667pt x 264.99pt>
 File: img/Ej32.png Graphic file (type png)
 <use img/Ej32.png>
 Package pdftex.def Info: img/Ej32.png  used on input line 13.
-(pdftex.def)             Requested size: 206.39685pt x 139.28761pt.
-) (secciones/Ejercicio4.tex
-<img/Ej4.png, id=90, 396.2805pt x 329.43076pt>
+(pdftex.def)             Requested size: 232.19843pt x 156.69856pt.
+<img/Ej43.jpg, id=96, 673.01437pt x 367.3725pt>
+File: img/Ej43.jpg Graphic file (type jpg)
+<use img/Ej43.jpg>
+Package pdftex.def Info: img/Ej43.jpg  used on input line 20.
+(pdftex.def)             Requested size: 361.19843pt x 197.16736pt.
+)
+(secciones/Ejercicio4.tex
+
+[3 <./img/Ej23.jpg> <./img/Ej3.png> <./img/Ej32.png>]
+<img/Ej4.png, id=105, 396.2805pt x 329.43076pt>
 File: img/Ej4.png Graphic file (type png)
 <use img/Ej4.png>
 Package pdftex.def Info: img/Ej4.png  used on input line 9.
 (pdftex.def)             Requested size: 206.39685pt x 171.58144pt.
-<img/Ej42.png, id=91, 424.58624pt x 256.5585pt>
+<img/Ej42.png, id=106, 424.58624pt x 256.5585pt>
 File: img/Ej42.png Graphic file (type png)
 <use img/Ej42.png>
 Package pdftex.def Info: img/Ej42.png  used on input line 14.
-(pdftex.def)             Requested size: 206.39685pt x 124.71649pt.
+(pdftex.def)             Requested size: 232.19843pt x 140.30899pt.
+<img/Ej33.jpg, id=107, 534.49687pt x 356.83313pt>
+File: img/Ej33.jpg Graphic file (type jpg)
+<use img/Ej33.jpg>
+Package pdftex.def Info: img/Ej33.jpg  used on input line 22.
+(pdftex.def)             Requested size: 361.19843pt x 241.14598pt.
 )
 (secciones/Ejercicio5.tex
 
-[2 <./img/Ej2.png> <./img/Ej22.png> <./img/Ej3.png> <./img/Ej32.png>]
-<img/Ej5.png, id=102, 299.31825pt x 423.38174pt>
+[4 <./img/Ej43.jpg> <./img/Ej4.png> <./img/Ej42.png>]
+<img/Ej5.png, id=116, 299.31825pt x 423.38174pt>
 File: img/Ej5.png Graphic file (type png)
 <use img/Ej5.png>
 Package pdftex.def Info: img/Ej5.png  used on input line 9.
 (pdftex.def)             Requested size: 206.39685pt x 291.94637pt.
-<img/Ej52.png, id=103, 322.20375pt x 329.43076pt>
+<img/Ej52.png, id=117, 322.20375pt x 329.43076pt>
 File: img/Ej52.png Graphic file (type png)
 <use img/Ej52.png>
 Package pdftex.def Info: img/Ej52.png  used on input line 14.
 (pdftex.def)             Requested size: 206.39685pt x 211.03603pt.
+<img/Ej53.jpg, id=118, 581.17125pt x 546.54187pt>
+File: img/Ej53.jpg Graphic file (type jpg)
+<use img/Ej53.jpg>
+Package pdftex.def Info: img/Ej53.jpg  used on input line 20.
+(pdftex.def)             Requested size: 309.60315pt x 291.15858pt.
 )
-(reporte.bbl)
 
-[3 <./img/Ej4.png> <./img/Ej42.png> <./img/Ej5.png> <./img/Ej52.png>]
-(reporte.aux
+[5 <./img/Ej33.jpg> <./img/Ej5.png> <./img/Ej52.png>]
+
+[6 <./img/Ej53.jpg>] (reporte.aux
 LaTeX Info: Redefining \. on input line 11.
 LaTeX Info: Redefining \% on input line 11.
 )
@@ -828,47 +850,29 @@ L3 programming layer <2025-01-18>
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: There were multiply-defined labels.
-
-
-Package rerunfilecheck Warning: File `reporte.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `reporte.out':
-(rerunfilecheck)             Before: 2793033CC72D664CDEF4A1AF229A9659;1148
-(rerunfilecheck)             After:  96A8FDD25CA80CCE9C5243349A3AF1D8;1148.
+Package rerunfilecheck Info: File `reporte.out' has not changed.
+(rerunfilecheck)             Checksum: E764E932F7BAF691C03B434214CFCCC7;1141.
  ) 
 Here is how much of TeX's memory you used:
- 15068 strings out of 473529
- 246839 string characters out of 5714773
- 649873 words of memory out of 5000000
- 38027 multiletter control sequences out of 15000+600000
+ 15081 strings out of 473529
+ 246936 string characters out of 5714773
+ 650384 words of memory out of 5000000
+ 38038 multiletter control sequences out of 15000+600000
  731614 words of font info for 129 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,16n,79p,451b,533s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-pdfTeX warning (dest): name{section*.5} has been referenced but does not exist,
- replaced by a fixed one
-
-<C:/Users/ilian/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb>
-<C:/Users/ilian/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb>
-<C:/Users/ilian/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbxi10.pfb
-><C:/Users/ilian/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.pf
-b><C:/Users/ilian/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb
-><C:/Users/ilian/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb>
-<C:/Users/ilian/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C
-:/Users/ilian/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr9.pfb><C:/
-Users/ilian/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:/
-Users/ilian/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri9.pfb><C:/U
-sers/ilian/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb>
-Output written on reporte.pdf (4 pages, 1630875 bytes).
+ 75i,16n,79p,331b,533s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/ilian/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pf
+b><C:/Users/ilian/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pf
+b><C:/Users/ilian/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbxi10.p
+fb><C:/Users/ilian/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.
+pfb><C:/Users/ilian/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.p
+fb><C:/Users/ilian/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pf
+b><C:/Users/ilian/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb>
+<C:/Users/ilian/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb>
+<C:/Users/ilian/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb>
+Output written on reporte.pdf (7 pages, 1809242 bytes).
 PDF statistics:
- 171 PDF objects out of 1000 (max. 8388607)
- 24 named destinations out of 1000 (max. 500000)
- 182 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 180 PDF objects out of 1000 (max. 8388607)
+ 29 named destinations out of 1000 (max. 500000)
+ 199 words of extra memory for PDF output out of 10000 (max. 10000000)
 
