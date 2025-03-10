@@ -14,3 +14,4 @@ if secuencia == "XYZ"
           cosd(phi)*sind(psi) + sind(phi)*sind(theta)*cosd(psi), cosd(phi)*cosd(psi) - sind(phi)*sind(theta)*sind(psi), -sind(phi)*cosd(theta);
           sind(phi)*sind(psi) - cosd(phi)*sind(theta)*cosd(psi), sind(phi)*cosd(psi) + cosd(phi)*sind(theta)*sind(psi), cosd(phi)*cosd(theta)]
 end
+
