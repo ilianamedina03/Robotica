@@ -1,7 +1,15 @@
 #!/usr/bin/env python3
 import rospy
 from geometry_msgs.msg import Twist
-
+# Este script mueve una tortuga en el entorno de ROS utilizando el tópico /turtle1/cmd_vel
+# Asegúrate de que el paquete 'turtlesim' esté instalado y en ejecución
+# Puedes iniciar el entorno de turtlesim con el siguiente comando:
+# rosrun turtlesim turtlesim_node
+# Luego, ejecuta este script en otra terminal con:
+# rosrun turtle_control move_turtle.py
+# Asegúrate de que el paquete 'turtle_control' esté creado y configurado correctamente
+# en tu espacio de trabajo de ROS.
+# Este script mueve la tortuga hacia adelante y gira en un bucle   
 def mover_tortuga():
     rospy.init_node('mover_tortuga', anonymous=True)
     pub = rospy.Publisher('/turtle1/cmd_vel', Twist, queue_size=10)
