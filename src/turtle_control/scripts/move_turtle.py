@@ -8,7 +8,7 @@ def mover_tortuga():
     rate = rospy.Rate(2)  # 2 Hz
 
     cmd = Twist()
-    cmd.linear.x = 1.0    # velocidad hacia adelante
+    cmd.linear.x = 0.5    # velocidad hacia adelante
     cmd.angular.z = 0.5   # velocidad de giro
 
     while not rospy.is_shutdown():
