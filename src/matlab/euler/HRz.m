@@ -1,15 +1,15 @@
 function RHz=HRz(theta)
 dato=whos('theta');
- if strcmp(dato.class, 'sym') %variables simbólicas
+ if strcmp(dato.class, 'sym') %variables simbï¿½licas
    RHz=simplify([cos(theta), -sin(theta),  0,  0;
                  sin(theta),  cos(theta),  0,  0;
                           0,           0,  1,  0;
                           0,           0,  0,  1],3);                
  else
-      digits(3); %cálculos numéricos
+      digits(3); %cï¿½lculos numï¿½ricos
      RHz=[ cos(theta),  -sin(theta),  0,  0;
                    sin(theta),  cos(theta),  0,  0;
                      0,      0,      1,  0;
                      0,      0,      0,  1];          
  end
-end
+end  
