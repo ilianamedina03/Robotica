@@ -10,9 +10,15 @@ function euler = rotMat2euler(R, secuencia)
 
 % Obtén las ecuaciones de la imagen
 if secuencia == "XYZ"
+<<<<<<< HEAD
     phi =   atan2(-R(2,3), R(3,3));  % phi:   rotación alrededor del eje X
     theta = asin(R(1,3)); % theta: rotación alrededor del eje Y
     psi = atan2(-R(1,2), R(1,1)); % psi:   rotación alrededor del eje Z
     euler =[phi; theta; psi];
+=======
+    phi = atan(-R(2,3)/R(3,3));     % phi:   rotación alrededor del eje X
+    theta = asin(R(1,3));           % theta: rotación alrededor del eje Y
+    psi = atan(-R(1,2)/R(1,1));     % psi:   rotación alrededor del eje Z
+    euler = [phi;theta;psi];
+>>>>>>> d082daa50045269f62ddb8b35c20a75e50a1f2d6
 end
-
