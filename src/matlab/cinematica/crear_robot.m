@@ -35,11 +35,13 @@ q = qMin;
 for i = 1:NGDL
     switch tipo(i)
         case 'r'    % Para juntas revolutas: se convierten los valores a radianes
-            qMin(i) = deg2rad(dh.min(i));
-            qMax(i) = deg2rad(dh.max(i));
-            dqMax(i) = deg2rad(dh.dqmax(i));
-            ddqMax(i) = deg2rad(dh.ddqmax(i));
-            q(i) = theta(i);
+           case 'r'  % Para juntas revolutas: se convierten los valores a radianes
+              qMin(i) = deg2rad(dh.min(i));
+              qMax(i) = deg2rad(dh.max(i));
+              dqMin(i) = deg2rad(-90);  % valor por defecto
+              dqMax(i) = deg2rad(90);   % valor por defecto
+              q(i) = theta(i);
+
         case 'p'    % Para juntas prismáticas: se mantienen en unidades lineales
             qMin(i) = dh.min(i);
             qMax(i) = dh.max(i);
