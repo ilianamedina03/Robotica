@@ -23,7 +23,6 @@ __pycache__/
 build/
 dist/
 install/
-log/
 logs/
 devel/
 .catkin_tools/
