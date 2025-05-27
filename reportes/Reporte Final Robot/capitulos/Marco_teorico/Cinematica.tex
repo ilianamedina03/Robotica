@@ -105,6 +105,13 @@ En el presente proyecto, se implementó el cálculo del Jacobiano en \texttt{MAT
 
 La \textbf{cinemática inversa} es el proceso mediante el cual se determinan los valores articulares necesarios para que el efector final de un robot manipulador alcance una posición y orientación deseadas en el espacio cartesiano tridimensional. En otras palabras, dado un objetivo en términos de coordenadas y orientación en el espacio, el objetivo de la cinemática inversa es encontrar todos los posibles conjuntos de variables articulares que produzcan esa configuración final.
 
+	\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{img/cinematicainv.png}
+	\caption{Para una posición y orientación dadas del marco de la herramienta, los valores de las variables articulares pueden calcularse mediante la cinemática inversa.}
+	\label{fig:CinematicaInversa}
+\end{figure}
+
 Este problema es fundamental en la programación de manipuladores robóticos, ya que las trayectorias y tareas generalmente se especifican en el espacio cartesiano, mientras que el movimiento del robot se controla en su espacio articular. Por lo tanto, es necesario disponer de algoritmos que realicen la conversión entre ambos espacios.
 
 A diferencia de la cinemática directa, las ecuaciones que definen la cinemática inversa son no lineales y, por lo tanto, pueden presentar múltiples soluciones o no tener ninguna, dependiendo de si el punto deseado se encuentra dentro del \textit{espacio de trabajo} del manipulador. Esta complejidad hace que, en muchos casos, no se pueda obtener una solución analítica cerrada, y se deban utilizar métodos numéricos o aproximados.
