@@ -3,22 +3,22 @@
      Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
 <robot
-  name="assembly.SLDASM">
+  name="assembly_sldsam">
   <link
     name="base_link">
     <inertial>
       <origin
-        xyz="7.2882E-09 -0.031299 0.09321"
+        xyz="7.28821085427267E-09 -0.0312986108746524 0.0932096931732312"
         rpy="0 0 0" />
       <mass
-        value="156.38" />
+        value="156.384128910965" />
       <inertia
-        ixx="3.3116"
-        ixy="1.7604E-07"
-        ixz="4.5615E-07"
-        iyy="2.6533"
-        iyz="0.31966"
-        izz="3.8906" />
+        ixx="3.31161275817224"
+        ixy="1.76037861499098E-07"
+        ixz="4.5614971942539E-07"
+        iyy="2.65331734095352"
+        iyz="0.319657739922467"
+        izz="3.8905939609168" />
     </inertial>
     <visual>
       <origin
@@ -26,12 +26,12 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://assembly.SLDASM/meshes/base_link.STL" />
+          filename="package://assembly_sldsam/meshes/base_link.STL" />
       </geometry>
       <material
         name="">
         <color
-          rgba="0.52941 0.54902 0.54902 1" />
+          rgba="0.529411764705882 0.549019607843137 0.549019607843137 1" />
       </material>
     </visual>
     <collision>
@@ -40,7 +40,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://assembly.SLDASM/meshes/base_link.STL" />
+          filename="package://assembly_sldsam/meshes/base_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -48,17 +48,17 @@
     name="link_1">
     <inertial>
       <origin
-        xyz="1.5626E-10 0.21308 -7.9926E-16"
+        xyz="1.56260657191432E-10 0.213075746734315 -7.99728861713446E-16"
         rpy="0 0 0" />
       <mass
-        value="39.19" />
+        value="39.1896246119642" />
       <inertia
-        ixx="0.75974"
-        ixy="3.425E-09"
-        ixz="3.3961E-09"
-        iyy="0.29562"
-        iyz="2.3789E-17"
-        izz="0.83177" />
+        ixx="0.759744390185537"
+        ixy="3.42502037191535E-09"
+        ixz="3.39614759072279E-09"
+        iyy="0.295622833052641"
+        iyz="2.46623658252518E-17"
+        izz="0.831766902274228" />
     </inertial>
     <visual>
       <origin
@@ -66,12 +66,12 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://assembly.SLDASM/meshes/link_1.STL" />
+          filename="package://assembly_sldsam/meshes/link_1.STL" />
       </geometry>
       <material
         name="">
         <color
-          rgba="0.89804 0.91765 0.92941 1" />
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
       </material>
     </visual>
     <collision>
@@ -80,7 +80,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://assembly.SLDASM/meshes/link_1.STL" />
+          filename="package://assembly_sldsam/meshes/link_1.STL" />
       </geometry>
     </collision>
   </link>
@@ -88,8 +88,8 @@
     name="joint_1"
     type="revolute">
     <origin
-      xyz="0 0 0.16"
-      rpy="1.5708 0 0" />
+      xyz="0 0 0.160000000000001"
+      rpy="1.5707963267949 0 0" />
     <parent
       link="base_link" />
     <child
@@ -106,17 +106,17 @@
     name="link_2">
     <inertial>
       <origin
-        xyz="-6.9389E-17 4.5177E-17 0.68756"
+        xyz="-6.93889390390723E-17 5.04362137595751E-17 0.687560014270784"
         rpy="0 0 0" />
       <mass
-        value="41.743" />
+        value="41.7432461481157" />
       <inertia
-        ixx="1.931"
-        ixy="-4.0579E-12"
-        ixz="3.1283E-16"
-        iyy="1.676"
-        iyz="1.5658E-18"
-        izz="0.42379" />
+        ixx="1.9310205220817"
+        ixy="-4.05787283124103E-12"
+        ixz="3.13727934198513E-16"
+        iyy="1.67596873799866"
+        iyz="4.98353574887817E-18"
+        izz="0.423793811309006" />
     </inertial>
     <visual>
       <origin
@@ -124,12 +124,12 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://assembly.SLDASM/meshes/link_2.STL" />
+          filename="package://assembly_sldsam/meshes/link_2.STL" />
       </geometry>
       <material
         name="">
         <color
-          rgba="0.89804 0.91765 0.92941 1" />
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
       </material>
     </visual>
     <collision>
@@ -138,7 +138,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://assembly.SLDASM/meshes/link_2.STL" />
+          filename="package://assembly_sldsam/meshes/link_2.STL" />
       </geometry>
     </collision>
   </link>
@@ -164,17 +164,17 @@
     name="link_3">
     <inertial>
       <origin
-        xyz="-0.12872 -0.01 1.1251"
+        xyz="-0.128715523660642 -0.0099999992916806 1.12508937145013"
         rpy="0 0 0" />
       <mass
-        value="32.562" />
+        value="32.5621950566976" />
       <inertia
-        ixx="0.21848"
-        ixy="4.3897E-10"
-        ixz="0.14926"
-        iyy="1.001"
-        iyz="-2.1175E-09"
-        izz="0.89833" />
+        ixx="0.218484293773647"
+        ixy="4.38969593734953E-10"
+        ixz="0.149263679838338"
+        iyy="1.00099194941034"
+        iyz="-2.11752432354073E-09"
+        izz="0.898333178003179" />
     </inertial>
     <visual>
       <origin
@@ -182,12 +182,12 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://assembly.SLDASM/meshes/link_3.STL" />
+          filename="package://assembly_sldsam/meshes/link_3.STL" />
       </geometry>
       <material
         name="">
         <color
-          rgba="0.89804 0.91765 0.92941 1" />
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
       </material>
     </visual>
     <collision>
@@ -196,7 +196,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://assembly.SLDASM/meshes/link_3.STL" />
+          filename="package://assembly_sldsam/meshes/link_3.STL" />
       </geometry>
     </collision>
   </link>
@@ -222,17 +222,17 @@
     name="link_4">
     <inertial>
       <origin
-        xyz="-0.41947 -0.01 1.1424"
+        xyz="-0.419469400514689 -0.00999999728996523 1.14240924132159"
         rpy="0 0 0" />
       <mass
-        value="2.1294" />
+        value="2.12944559509751" />
       <inertia
-        ixx="0.011214"
-        ixy="2.2551E-09"
-        ixz="-0.00043891"
-        iyy="0.012163"
-        iyz="2.7757E-10"
-        izz="0.003895" />
+        ixx="0.0112141063640005"
+        ixy="2.25505386591347E-09"
+        ixz="-0.000438905418450459"
+        iyy="0.012163283947722"
+        iyz="2.77566528765089E-10"
+        izz="0.00389498159164101" />
     </inertial>
     <visual>
       <origin
@@ -240,7 +240,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://assembly.SLDASM/meshes/link_4.STL" />
+          filename="package://assembly_sldsam/meshes/link_4.STL" />
       </geometry>
       <material
         name="">
@@ -254,7 +254,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://assembly.SLDASM/meshes/link_4.STL" />
+          filename="package://assembly_sldsam/meshes/link_4.STL" />
       </geometry>
     </collision>
   </link>
