@@ -1,10 +1,9 @@
-
 <?xml version="1.0" encoding="utf-8"?>
 <!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
      Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
 <robot
-  name="assembly.SLDASM">
+  name="assembly_sldasm">
   <link
     name="base_link">
     <inertial>
@@ -319,44 +318,74 @@
       <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
+  </transmission>  <transmission name="link_1_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="joint_1">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="link_1_motor">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
   </transmission>
-  <!-- Link del electroimán -->
-  <link name="magnet_link">
-    <!-- Inercia aproximada -->
-    <inertial>
-      <mass value="0.5"/>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <inertia 
-        ixx="0.0001" ixy="0.0" ixz="0.0"
-        iyy="0.0001" iyz="0.0"
-        izz="0.0001"/>
-    </inertial>
 
-    <!-- Geometría visual -->
-    <visual>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <cylinder radius="0.025" length="0.03"/>
-      </geometry>
-      <material name="Gray">
-        <color rgba="0.3 0.3 0.3 1.0"/>
-      </material>
-    </visual>
+  <transmission name="link_2_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="joint_2">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="link_2_motor">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
 
-    <!-- Geometría de colisión -->
-    <collision>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <cylinder radius="0.025" length="0.03"/>
-      </geometry>
-    </collision>
-  </link>
+  <transmission name="link_3_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="joint_3">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="link_3_motor">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
 
-  <!-- Joint fijo que une el imán al link_4 -->
-  <joint name="magnet_joint" type="fixed">
-    <parent link="link_4"/>
-    <child  link="magnet_link"/>
-    <!-- Puedes ajustar este origen si ves que el imán no queda centrado -->
-    <origin xyz="0 0 0.10" rpy="0 0 0"/>
-  </joint>
+  <transmission name="link_4_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="joint_4">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="link_4_motor">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+    <gazebo>
+    <plugin 
+      name="control"
+      filename="libgazebo_ros_control.so">
+      <robotNamespace>/</robotNamespace>
+    </plugin>
+  </gazebo>
+
+<!-- Paso 6 -->
+
+<gazebo reference="link_1">
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="link_2">
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="link_3">
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="link_4">
+  <selfCollide>true</selfCollide>
+</gazebo>
+
 </robot>
+
