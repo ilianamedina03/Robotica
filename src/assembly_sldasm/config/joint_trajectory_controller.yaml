@@ -1,0 +1,14 @@
+# config/joint_trajectory_controller.yaml
+
+assembly_sldasm_arm_controller:
+  type: "position_controllers/JointTrajectoryController"
+  joints:
+    - joint_1
+    - joint_2
+    - joint_3
+    - joint_4
+    
+joint_state_controller:
+  type: "joint_state_controller/JointStateController"
+  publish_rate: 50  # Frecuencia en Hz para publicar estados continuamente
+# Puedes agregar controladores adicionales aquí, como para efector final o para publicar estados

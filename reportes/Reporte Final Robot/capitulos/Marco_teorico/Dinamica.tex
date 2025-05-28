@@ -1,0 +1,91 @@
+\section{Dinámica} \label{sec:dinamica}
+
+La dinámica de robots se encarga del estudio de cómo las fuerzas y torques afectan el movimiento de un robot. A diferencia de la cinemática, que sólo considera posiciones, velocidades y aceleraciones, la dinámica incluye también las **fuerzas** que causan dichos movimientos.
+
+El modelo dinámico de un robot manipulador se representa generalmente en coordenadas articulares \( \mathbf{q} \), e incluye la interacción entre masa, inercia, efectos centrífugos y de Coriolis, gravedad, fricción y perturbaciones externas. El modelo completo tiene la forma:
+
+\begin{equation}
+	\mathbf{M}(\mathbf{q})\ddot{\mathbf{q}} + \mathbf{C}(\mathbf{q}, \dot{\mathbf{q}})\dot{\mathbf{q}} + \mathbf{g}(\mathbf{q}) = \boldsymbol{\tau}
+\end{equation}
+
+Donde:
+
+\begin{itemize}
+	\item \( \mathbf{q} \): Vector de coordenadas articulares (por ejemplo, ángulos o desplazamientos).
+	\item \( \ddot{\mathbf{q}} \): Aceleraciones articulares.
+	\item \( \mathbf{M}(\mathbf{q}) \): Matriz de inercia o masa generalizada.
+	\item \( \mathbf{C}(\mathbf{q}, \dot{\mathbf{q}}) \): Términos centrífugos y de Coriolis.
+	\item \( \mathbf{g}(\mathbf{q}) \): Vector de torques debido a la gravedad.
+	\item \( \boldsymbol{\tau} \): Vector de torques aplicados por los actuadores.
+\end{itemize}
+
+\subsubsection{Matriz de masa o inercia \( \mathbf{M}(\mathbf{q}) \)}
+
+La matriz de masa describe la inercia del sistema con respecto a sus coordenadas articulares. Depende de la masa y la distribución de masa (es decir, los tensores de inercia) de cada eslabón del robot. Se obtiene a partir de la energía cinética del sistema:
+
+\begin{equation}
+	E_c = \frac{1}{2} \sum_{i=1}^{n} m_i \mathbf{v}_i^T \mathbf{v}_i + \frac{1}{2} \sum_{i=1}^{n} \boldsymbol{\omega}_i^T \mathbf{J}_i \boldsymbol{\omega}_i
+\end{equation}
+
+Donde:
+
+\begin{itemize}
+	\item \( m_i \): Masa del eslabón \( i \).
+	\item \( \mathbf{v}_i \): Velocidad lineal del centro de masa del eslabón \( i \).
+	\item \( \boldsymbol{\omega}_i \): Velocidad angular del eslabón \( i \).
+	\item \( \mathbf{J}_i \): Tensor de inercia del eslabón \( i \) respecto a su centro de masa.
+\end{itemize}
+
+Esta matriz es simétrica y definida positiva, lo que garantiza estabilidad física.
+
+\subsubsection{Términos de Coriolis y centrífugos \( \mathbf{C}(\mathbf{q}, \dot{\mathbf{q}}) \)}
+
+Cuando un robot está en movimiento, aparecen fuerzas adicionales debido a la interacción entre las velocidades de las articulaciones. Estas fuerzas se dividen en:
+
+\begin{itemize}
+	\item \textbf{Fuerzas centrífugas:} Proporcionales al cuadrado de la velocidad.
+	\item \textbf{Fuerzas de Coriolis:} Proporcionales al producto cruzado entre velocidades.
+\end{itemize}
+
+Estas fuerzas se agrupan en la matriz \( \mathbf{C}(\mathbf{q}, \dot{\mathbf{q}}) \), que puede derivarse a partir de la matriz de inercia usando:
+
+\begin{equation}
+	C_{ijk} = \frac{1}{2} \left( \frac{\partial M_{ij}}{\partial q_k} + \frac{\partial M_{ik}}{\partial q_j} - \frac{\partial M_{jk}}{\partial q_i} \right)
+\end{equation}
+
+\subsubsection{Vector de gravedad \( \mathbf{g}(\mathbf{q}) \)}
+
+El peso de cada eslabón genera torques en las articulaciones dependiendo de la configuración del robot. Estas fuerzas se agrupan en el vector \( \mathbf{g}(\mathbf{q}) \), y su forma general es:
+
+\begin{equation}
+	\mathbf{g}(\mathbf{q}) = \sum_{i=1}^{n} m_i g \frac{\partial h_i}{\partial \mathbf{q}}
+\end{equation}
+
+Donde \( h_i \) es la altura del centro de masa del eslabón \( i \) en el sistema de coordenadas global. Este término es fundamental para realizar compensación de gravedad en controladores de robots.
+
+\subsubsection{Fricción}
+
+La fricción es un efecto no conservativo que se opone al movimiento y depende de la velocidad de las articulaciones. Se considera de dos tipos:
+
+\begin{itemize}
+	\item \textbf{Fricción estática:} Torque necesario para iniciar el movimiento.
+	\item \textbf{Fricción viscosa:} Proporcional a la velocidad articular.
+\end{itemize}
+
+El modelo combinado puede expresarse como:
+
+\begin{equation}
+	\tau_{\text{fricción}} = K_v \dot{q} + \tau_s \cdot \text{sign}(\dot{q})
+\end{equation}
+
+donde \( K_v \) es el coeficiente de fricción viscosa y \( \tau_s \) es el torque de fricción estática.
+
+\subsubsection{Perturbaciones externas}
+
+Finalmente, el robot puede estar sujeto a fuerzas externas no modeladas, como colisiones, fuerzas del entorno o errores de calibración. Estas se incluyen como un torque perturbador \( \tau_{\text{perturbador}} \) que se resta del torque total aplicado:
+
+\begin{equation}
+	\boldsymbol{\tau}_{\text{total}} = \boldsymbol{\tau}_{\text{motor}} - \boldsymbol{\tau}_{\text{perturbador}} - \boldsymbol{\tau}_{\text{fricción}}
+\end{equation}
+
+Estas perturbaciones son relevantes en aplicaciones donde el entorno no es completamente conocido o en robótica colaborativa donde hay contacto humano-robot.
