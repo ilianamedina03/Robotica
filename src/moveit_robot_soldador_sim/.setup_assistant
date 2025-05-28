@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: assembly
+    relative_path: urdf/assembly.urdf
+    xacro_args: ""
+  SRDF:
+    relative_path: config/assembly.srdf
+  CONFIG:
+    author_name: Itzel Mesta Valdez
+    author_email: itzelmestavaldez@gmail.com
+    generated_timestamp: 1748406478
