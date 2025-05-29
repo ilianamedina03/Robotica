@@ -1,6 +1,8 @@
 %\documentclass{clases}
 \documentclass[a4paper,12pt, oneside]{book}
 \input{clases}
+\usepackage{url}
+\usepackage{hyperref}
 
 \begin{document}
 	% Aquí se encuentra el archivo con la portada
@@ -100,12 +102,15 @@
 	{~\raisebox{-1.5pt}{}
 		\\\vspace{.05cm}\titlerule\\\filcenter #1 \\\vspace{.25cm}\titlerule}
 	%{\titlerule\\\vspace{.25cm}\filcenter #1 \\\vspace{.25cm}\titlerule}
-	\bibliographystyle{IEEEtranN}
+	\bibliographystyle{IEEEtran}
 	\newpage\label{bibliografia}
 	\addcontentsline{toc}{chapter}{Bibliografía}
 	
 	% Pulsa Ctrl + Clic Izquierdo en bibliografia para entrar.
-	\bibliography{bibliografia}
+
+\bibliography{bibliografia}  % sin extensión .bib
+\nocite{*}
+	
 \end{document}
 
 

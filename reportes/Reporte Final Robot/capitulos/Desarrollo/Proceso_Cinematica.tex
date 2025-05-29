@@ -1,22 +1,102 @@
 \section{Proceso de Cinemática} \label{sec:proceso_cinematica}
 
-Aquí explicarán su código. Si quieren mostrar una parte, pueden hacerlo de la siguiente forma
+%Aquí explicarán su código. Si quieren mostrar una parte, pueden hacerlo de la siguiente forma
 
 % Si no quieres ponerle título al código, puedes dejarlo en blanco.
-\begin{matlabcode}{matlab}
-	function [q_sol, p_sol] = cinematica_inv(r, p_des, tol, max_iter, alpha, numMuestras)
-\end{matlabcode}
+%\begin{matlabcode}{matlab}
+%	function [q_sol, p_sol] = cinematica_inv(r, p_des, tol, max_iter, alpha, numMuestras)
+%\end{matlabcode}
 
-Pero solo háganlo en partes muy específicas (las que van a explicar en ese momento). No copien todo el código ya que eso está en GitHub.
+%Pero solo háganlo en partes muy específicas (las que van a explicar en ese momento). No copien todo el código ya que eso está en GitHub.
 
-Si les sale el error \texttt{latexminted no se reconoce como un comando interno o externo, programa o archivo por lotes ejecutable}, deben tener instalado python y usar el siguiente comando.
-\begin{terminal}{bash: Instalar minted en python con pip}
-	pip install latexminted==0.5.1
-\end{terminal}
+%Si les sale el error \texttt{latexminted no se reconoce como un comando interno o externo, programa o archivo por lotes ejecutable}, deben tener instalado python y usar el siguiente comando.
+%\begin{terminal}{bash: Instalar minted en python con pip}
+%	pip install latexminted==0.5.1
+%\end{terminal}
 
 \subsection{Cinemática Directa}
-Explicar las partes importantes del código de la cinemática directa.
-Para ver los resultados, ir al \autoref{chap:resultados}: Resultados, o determinada figura.
+\subsubsection{Prueba de Cinemática Directa}
+
+Este apartado describe la implementación de la prueba de cinemática directa de un robot manipulador, realizada en \textbf{MATLAB} mediante la lectura de su tabla de parámetros de \textbf{Denavit-Hartenberg (DH)}. El objetivo es validar y visualizar el comportamiento del efector final ante trayectorias articulares definidas, mediante el cálculo de su posición, orientación, velocidad y aceleración, tanto lineal como angular. Además, se genera una animación del movimiento y gráficas correspondientes a las variables cinemáticas.
+
+\paragraph{Inicialización.}
+
+Se comienza limpiando las variables del entorno y definiendo la posición y orientación inicial del efector final. Esta orientación se establece mediante \textbf{ángulos de Euler} $(\phi, \theta, \psi)$, convertidos a radianes y posteriormente a una matriz de rotación utilizando la función \texttt{euler2rotMat()}. Con estos datos se construye la matriz homogénea inicial $A_0$, que representa la configuración base del robot.
+
+\paragraph{Construcción de la estructura del robot.}
+
+A continuación, se carga la tabla DH desde un archivo \texttt{.csv} y se genera la estructura del robot mediante la función \texttt{crear\_robot()}. Esta función transforma los parámetros DH en matrices homogéneas encadenadas que describen la configuración espacial del robot en función de sus articulaciones.
+
+\paragraph{Generación de trayectorias articulares.}
+
+Se genera una trayectoria cíclica para las articulaciones del robot, definida por un período específico. Para cada instante de tiempo $t_k$ se obtienen:
+
+\begin{itemize}
+	\item $q(t)$: Posición articular.
+	\item $\dot{q}(t)$: Velocidad articular.
+	\item $\ddot{q}(t)$: Aceleración articular.
+\end{itemize}
+
+Estas trayectorias se calculan con la función \texttt{trayectoria\_q()}.
+
+\paragraph{Cálculo de la cinemática directa.}
+
+Durante cada instante de tiempo, se realiza el siguiente procedimiento:
+
+\begin{enumerate}
+	\item Se actualiza la configuración del robot con los valores articulares actuales
+	
+	usando \texttt{actualizar\_robot()}.
+	\item Se extrae la posición del efector final desde la última matriz homogénea.
+	\item Se calcula su orientación en ángulos de Euler.
+	\item Se calcula el jacobiano geométrico, compuesto por:
+	\begin{itemize}
+		\item $J_v$: Jacobiano lineal.
+		\item $J_w$: Jacobiano angular.
+	\end{itemize}
+	\item Se obtienen las velocidades:
+	\[
+	\mathbf{v} = J_v \cdot \dot{\mathbf{q}}, \quad
+	\boldsymbol{\omega} = J_w \cdot \dot{\mathbf{q}}
+	\]
+	\item Se aproximan las derivadas temporales de los jacobianos mediante diferencias finitas:
+	\[
+	\dot{J} \approx \frac{J(k) - J(k-1)}{\Delta t}
+	\]
+	\item Finalmente, se calculan las aceleraciones:
+	\[
+	\mathbf{a} = J_v \cdot \ddot{\mathbf{q}} + \dot{J}_v \cdot \dot{\mathbf{q}}, \quad
+	\boldsymbol{\alpha} = J_w \cdot \ddot{\mathbf{q}} + \dot{J}_w \cdot \dot{\mathbf{q}}
+	\]
+\end{enumerate}
+
+Se destaca el uso de preasignación de memoria para mejorar el rendimiento computacional en los bucles iterativos.
+
+\paragraph{Animación del robot.}
+
+Se genera una animación del movimiento del robot a \textbf{30 fps}. La trayectoria articular se interpola a mayor resolución para asegurar suavidad. El robot se dibuja en cada fotograma usando la función \texttt{dibujar\_robot()}. Opcionalmente, el script puede guardar la animación como archivo de video.
+
+\paragraph{Visualización de resultados.}
+
+Se presentan seis gráficas que muestran la evolución temporal de las principales variables cinemáticas:
+
+\begin{itemize}
+	\item \textbf{Cinemática Lineal}:
+	\begin{itemize}
+		\item Posición del efector final $(X, Y, Z)$
+		\item Velocidad lineal $(V_x, V_y, V_z)$
+		\item Aceleración lineal $(a_x, a_y, a_z)$
+	\end{itemize}
+	\item \textbf{Cinemática Angular}:
+	\begin{itemize}
+		\item Orientación en ángulos de Euler $(\phi, \theta, \psi)$
+		\item Velocidad angular $\left(\frac{d\phi}{dt}, \frac{d\theta}{dt}, \frac{d\psi}{dt}\right)$
+		\item Aceleración angular $\left(\frac{d^2\phi}{dt^2}, \frac{d^2\theta}{dt^2}, \frac{d^2\psi}{dt^2}\right)$
+	\end{itemize}
+\end{itemize}
+
+Cada componente se representa con un color distinto para facilitar el análisis e interpretación visual. Para ver los resultados, ir a \autoref{fig:TablasCinematicaDirecta} o al apartado de \autoref{chap:resultados}: Resultados.
+
 \subsection{Cinemática Diferencial}
 Explicar las partes importantes del código de la cinemática diferencial.
 Para ver los resultados, ir al \autoref{chap:resultados}: Resultados, o determinada figura.
