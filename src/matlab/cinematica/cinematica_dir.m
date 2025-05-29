@@ -31,10 +31,9 @@ Jv = zeros(3,robot.NGDL,length(t));
 dJv = Jv;
 Jw = Jv;
 dJw = Jw;
-dt = 0.05;
 
 for k = 1:length(t)
-
+    robot = actualizar_robot(robot, q(:,k));
     pos(:,k) = robot.T(1:3,4,end);
     R(:,:,k) = robot.T(1:3,1:3,end);
 
@@ -46,6 +45,7 @@ for k = 1:length(t)
     v_r(:,k) = Jw(:,:,k)*dq(:,k);
 
     if k > 1
+        dt = t(k)- t(k-1);
         dJv(:,:,k) = (Jv(:,:,k) - Jv(:,:,k-1)) / dt;
         dJw(:,:,k) = (Jw(:,:,k) - Jw(:,:,k-1)) / dt;
     end
