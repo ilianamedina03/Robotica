@@ -3,6 +3,7 @@
 \input{clases}
 \usepackage{url}
 \usepackage{hyperref}
+\usepackage[numbers]{natbib}
 
 \begin{document}
 	% Aquí se encuentra el archivo con la portada
@@ -102,14 +103,14 @@
 	{~\raisebox{-1.5pt}{}
 		\\\vspace{.05cm}\titlerule\\\filcenter #1 \\\vspace{.25cm}\titlerule}
 	%{\titlerule\\\vspace{.25cm}\filcenter #1 \\\vspace{.25cm}\titlerule}
-	\bibliographystyle{IEEEtran}
+	\bibliographystyle{IEEE}
 	\newpage\label{bibliografia}
 	\addcontentsline{toc}{chapter}{Bibliografía}
 	
 	% Pulsa Ctrl + Clic Izquierdo en bibliografia para entrar.
-
-\bibliography{bibliografia}  % sin extensión .bib
 \nocite{*}
+\bibliography{bibliografia}  % sin extensión .bib
+
 	
 \end{document}
 

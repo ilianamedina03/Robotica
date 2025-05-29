@@ -36,16 +36,8 @@
 %	\item[\(\mu_k\)] Fricción cinética (\(N \cdot m \cdot s\) o \(\frac{N \cdot m \cdot s}{rad}\)).
 \end{description}
 
-El modelo de Denavit-Hartenberg (DH) sirve como base para calcular las matrices de transformación homogénea entre cada par de eslabones. Estas matrices permiten obtener la posición y orientación del efector final a lo largo del tiempo mediante la \textbf{cinemática directa}.
 
-\begin{itemize}
-	\item La posición cartesiana $(X, Y, Z)$ y la orientación $(\phi, \theta, \psi)$ del efector se calculan para cada instante de la trayectoria simulada.
-	\item Las \textbf{velocidades lineales} y \textbf{aceleraciones lineales} se obtienen derivando numéricamente las posiciones.
-	\item Las \textbf{velocidades angulares} y \textbf{aceleraciones angulares} se calculan a partir de los cambios en la orientación, por ejemplo, derivando los ángulos de Euler.
-\end{itemize}
-
-\vspace{0.5em}
-\subsection*{Importancia de los Límites y Parámetros Dinámicos}
+\subsection{Importancia de los Límites y Parámetros Dinámicos}
 
 \begin{itemize}
 	\item Los \textbf{límites articulares} aseguran que el robot opere dentro de sus capacidades físicas, evitando colisiones o daños mecánicos.
