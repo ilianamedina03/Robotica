@@ -1,6 +1,6 @@
 # config/joint_trajectory_controller.yaml
 
-assembly_sldasm_arm_controller:
+robot_arm_controller:
   type: "position_controllers/JointTrajectoryController"
   joints:
     - joint_1
