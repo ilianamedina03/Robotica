@@ -1,25 +1,199 @@
 \section{Proceso de Cinemática} \label{sec:proceso_cinematica}
 
-Aquí explicarán su código. Si quieren mostrar una parte, pueden hacerlo de la siguiente forma
+%Aquí explicarán su código. Si quieren mostrar una parte, pueden hacerlo de la siguiente forma
 
 % Si no quieres ponerle título al código, puedes dejarlo en blanco.
-\begin{matlabcode}{matlab}
-	function [q_sol, p_sol] = cinematica_inv(r, p_des, tol, max_iter, alpha, numMuestras)
-\end{matlabcode}
+%\begin{matlabcode}{matlab}
+%	function [q_sol, p_sol] = cinematica_inv(r, p_des, tol, max_iter, alpha, numMuestras)
+%\end{matlabcode}
 
-Pero solo háganlo en partes muy específicas (las que van a explicar en ese momento). No copien todo el código ya que eso está en GitHub.
+%Pero solo háganlo en partes muy específicas (las que van a explicar en ese momento). No copien todo el código ya que eso está en GitHub.
 
-Si les sale el error \texttt{latexminted no se reconoce como un comando interno o externo, programa o archivo por lotes ejecutable}, deben tener instalado python y usar el siguiente comando.
-\begin{terminal}{bash: Instalar minted en python con pip}
-	pip install latexminted==0.5.1
-\end{terminal}
+%Si les sale el error \texttt{latexminted no se reconoce como un comando interno o externo, programa o archivo por lotes ejecutable}, deben tener instalado python y usar el siguiente comando.
+%\begin{terminal}{bash: Instalar minted en python con pip}
+%	pip install latexminted==0.5.1
+%\end{terminal}
 
 \subsection{Cinemática Directa}
-Explicar las partes importantes del código de la cinemática directa.
-Para ver los resultados, ir al \autoref{chap:resultados}: Resultados, o determinada figura.
+\subsubsection{Prueba de Cinemática Directa}
+
+Este apartado describe la implementación de la prueba de cinemática directa de un robot manipulador, realizada en \textbf{MATLAB} mediante la lectura de su tabla de parámetros de \textbf{Denavit-Hartenberg (DH)}. El objetivo es validar y visualizar el comportamiento del efector final ante trayectorias articulares definidas, mediante el cálculo de su posición, orientación, velocidad y aceleración, tanto lineal como angular. Además, se genera una animación del movimiento y gráficas correspondientes a las variables cinemáticas.
+
+\paragraph{Inicialización.}
+
+Se comienza limpiando las variables del entorno y definiendo la posición y orientación inicial del efector final. Esta orientación se establece mediante \textbf{ángulos de Euler} $(\phi, \theta, \psi)$, convertidos a radianes y posteriormente a una matriz de rotación utilizando la función \texttt{euler2rotMat()}. Con estos datos se construye la matriz homogénea inicial $A_0$, que representa la configuración base del robot.
+
+\paragraph{Construcción de la estructura del robot.}
+
+A continuación, se carga la tabla DH desde un archivo \texttt{.csv} y se genera la estructura del robot mediante la función \texttt{crear\_robot()}. Esta función transforma los parámetros DH en matrices homogéneas encadenadas que describen la configuración espacial del robot en función de sus articulaciones.
+
+\paragraph{Generación de trayectorias articulares.}
+
+Se genera una trayectoria cíclica para las articulaciones del robot, definida por un período específico. Para cada instante de tiempo $t_k$ se obtienen:
+
+\begin{itemize}
+	\item $q(t)$: Posición articular.
+	\item $\dot{q}(t)$: Velocidad articular.
+	\item $\ddot{q}(t)$: Aceleración articular.
+\end{itemize}
+
+Estas trayectorias se calculan con la función \texttt{trayectoria\_q()}.
+
+\paragraph{Cálculo de la cinemática directa.}
+
+Durante cada instante de tiempo, se realiza el siguiente procedimiento:
+
+\begin{enumerate}
+	\item Se actualiza la configuración del robot con los valores articulares actuales
+	
+	usando \texttt{actualizar\_robot()}.
+	\item Se extrae la posición del efector final desde la última matriz homogénea.
+	\item Se calcula su orientación en ángulos de Euler.
+	\item Se calcula el jacobiano geométrico, compuesto por:
+	\begin{itemize}
+		\item $J_v$: Jacobiano lineal.
+		\item $J_w$: Jacobiano angular.
+	\end{itemize}
+	\item Se obtienen las velocidades:
+	\[
+	\mathbf{v} = J_v \cdot \dot{\mathbf{q}}, \quad
+	\boldsymbol{\omega} = J_w \cdot \dot{\mathbf{q}}
+	\]
+	\item Se aproximan las derivadas temporales de los jacobianos mediante diferencias finitas:
+	\[
+	\dot{J} \approx \frac{J(k) - J(k-1)}{\Delta t}
+	\]
+	\item Finalmente, se calculan las aceleraciones:
+	\[
+	\mathbf{a} = J_v \cdot \ddot{\mathbf{q}} + \dot{J}_v \cdot \dot{\mathbf{q}}, \quad
+	\boldsymbol{\alpha} = J_w \cdot \ddot{\mathbf{q}} + \dot{J}_w \cdot \dot{\mathbf{q}}
+	\]
+\end{enumerate}
+
+Se destaca el uso de preasignación de memoria para mejorar el rendimiento computacional en los bucles iterativos.
+
+\paragraph{Animación del robot.}
+
+Se genera una animación del movimiento del robot a \textbf{30 fps}. La trayectoria articular se interpola a mayor resolución para asegurar suavidad. El robot se dibuja en cada fotograma usando la función \texttt{dibujar\_robot()}. Opcionalmente, el script puede guardar la animación como archivo de video.
+
+\paragraph{Visualización de resultados.}
+
+Se presentan seis gráficas que muestran la evolución temporal de las principales variables cinemáticas:
+
+\begin{itemize}
+	\item \textbf{Cinemática Lineal}:
+	\begin{itemize}
+		\item Posición del efector final $(X, Y, Z)$
+		\item Velocidad lineal $(V_x, V_y, V_z)$
+		\item Aceleración lineal $(a_x, a_y, a_z)$
+	\end{itemize}
+	\item \textbf{Cinemática Angular}:
+	\begin{itemize}
+		\item Orientación en ángulos de Euler $(\phi, \theta, \psi)$
+		\item Velocidad angular $\left(\frac{d\phi}{dt}, \frac{d\theta}{dt}, \frac{d\psi}{dt}\right)$
+		\item Aceleración angular $\left(\frac{d^2\phi}{dt^2}, \frac{d^2\theta}{dt^2}, \frac{d^2\psi}{dt^2}\right)$
+	\end{itemize}
+\end{itemize}
+
+Cada componente se representa con un color distinto para facilitar el análisis e interpretación visual. Para ver los resultados, ir a \autoref{fig:TablasCinematicaDirecta} o al apartado de \autoref{chap:resultados}: Resultados.
+
 \subsection{Cinemática Diferencial}
-Explicar las partes importantes del código de la cinemática diferencial.
-Para ver los resultados, ir al \autoref{chap:resultados}: Resultados, o determinada figura.
+\subsubsection{Cinemática Diferencial}
+
+La \textbf{cinemática diferencial} estudia cómo varían en el tiempo la posición y orientación del efector final de un robot en función de las velocidades y aceleraciones articulares. En el código, este análisis se lleva a cabo utilizando el \textbf{jacobiano geométrico}, el cual permite relacionar directamente los movimientos articulares con las velocidades y aceleraciones espaciales.
+
+\vspace{0.5em}
+\paragraph{Velocidades del efector final.}
+
+Primero, se calcula el jacobiano lineal y angular en cada instante de tiempo para determinar las velocidades:
+
+\begin{equation}
+	\mathbf{v} = J_v(\mathbf{q}) \cdot \dot{\mathbf{q}}, \qquad
+	\boldsymbol{\omega} = J_w(\mathbf{q}) \cdot \dot{\mathbf{q}}
+\end{equation}
+
+donde:
+\begin{itemize}
+	\item $\mathbf{v}$: velocidad lineal del efector final,
+	\item $\boldsymbol{\omega}$: velocidad angular del efector final,
+	\item $J_v$: parte lineal del jacobiano,
+	\item $J_w$: parte angular del jacobiano,
+	\item $\dot{\mathbf{q}}$: vector de velocidades articulares.
+\end{itemize}
+
+\vspace{0.5em}
+\paragraph{Derivada temporal del Jacobiano.}
+
+Se calcula la derivada del jacobiano usando diferencias finitas centradas:
+
+\begin{equation}
+	\dot{J} \approx \frac{J(k) - J(k-1)}{\Delta t}
+\end{equation}
+
+donde $k$ representa el índice de tiempo discreto.
+
+\vspace{0.5em}
+\paragraph{Aceleraciones del efector final.}
+
+Con la derivada del jacobiano, se pueden calcular la aceleración lineal y angular del efector final:
+
+\begin{equation}
+	\mathbf{a} = J_v \cdot \ddot{\mathbf{q}} + \dot{J}_v \cdot \dot{\mathbf{q}}, \qquad
+	\boldsymbol{\alpha} = J_w \cdot \ddot{\mathbf{q}} + \dot{J}_w \cdot \dot{\mathbf{q}}
+\end{equation}
+
+donde:
+\begin{itemize}
+	\item $\mathbf{a}$: aceleración lineal del efector final,
+	\item $\boldsymbol{\alpha}$: aceleración angular del efector final,
+	\item $\ddot{\mathbf{q}}$: aceleración articular,
+	\item $\dot{J}_v$, $\dot{J}_w$: derivadas temporales del jacobiano lineal y angular, respectivamente.
+\end{itemize}
+
+\vspace{0.5em}
+\paragraph{Importancia del análisis.}
+
+Este procedimiento permite obtener un análisis completo del comportamiento dinámico del efector final \textbf{sin necesidad de resolver directamente las ecuaciones de la dinámica}. Además, estas variables son clave para tareas como:
+
+\begin{itemize}
+	\item Control en tiempo real,
+	\item Detección de colisiones,
+	\item Planificación de trayectorias suaves y seguras.
+\end{itemize}
+
+
 \subsection{Cinemática Inversa}
-Explicar las partes importantes del código de la cinemática inversa.
-Para ver los resultados, ir al \autoref{chap:resultados}: Resultados, o determinada figura.
+\subsubsection{Descripción del algoritmo de cinemática inversa}
+
+El algoritmo implementado realiza la \textbf{cinemática inversa numérica} de un manipulador robótico, con el objetivo de encontrar una configuración articular $\mathbf{q}$ que lleve al efector final a una posición deseada $\mathbf{p}_{\text{des}}$. El método se basa en un enfoque por \textit{muestreo aleatorio} combinado con \textit{refinamiento por descenso del gradiente}, utilizando el Jacobiano del robot.
+
+\paragraph{1. Generación de muestras aleatorias.}
+
+Inicialmente, se generan múltiples configuraciones articulares ($\mathbf{q}_{\text{candidatas}}$) dentro del rango permitido por los límites articulares ($\mathbf{q}_{\min}$ y $\mathbf{q}_{\max}$). Esto se realiza mediante una distribución uniforme de muestras aleatorias, escaladas al dominio permitido por cada articulación. Estas muestras representan posibles soluciones iniciales para el problema.
+
+\paragraph{2. Evaluación del error de posición.}
+
+Cada configuración candidata se evalúa utilizando la función de cinemática directa del robot, obteniendo así la posición del efector final. Luego, se calcula el \textbf{error euclidiano} respecto a la posición deseada $\mathbf{p}_{\text{des}}$, y se almacena este valor de error para cada muestra.
+
+\paragraph{3. Ordenamiento por error.}
+
+Una vez evaluadas todas las muestras, se ordenan de menor a mayor en función del error obtenido, priorizando aquellas que se encuentran inicialmente más cerca de la posición deseada.
+
+\paragraph{4. Refinamiento de las muestras.}
+
+Para cada una de las muestras ordenadas, se realiza un proceso iterativo de refinamiento mediante \textbf{descenso del gradiente}, utilizando la \textbf{pseudoinversa} de la parte traslacional del Jacobiano ($J_v$). Este procedimiento ajusta progresivamente los valores de las articulaciones para reducir el error de posición. Durante este proceso:
+
+\begin{itemize}
+	\item Se respetan los límites articulares utilizando una función de \textit{saturación}.
+	\item El refinamiento se detiene cuando el error es menor que una tolerancia especificada ($\text{tol}$) o cuando se alcanza un número máximo de iteraciones.
+\end{itemize}
+
+\paragraph{5. Verificación de tolerancia y selección final.}
+
+Si alguna de las muestras refinadas logra alcanzar una solución cuyo error es menor o igual a la tolerancia establecida, se acepta inmediatamente como solución y se retorna. En caso contrario, se selecciona la mejor de las soluciones refinadas, es decir, aquella con el menor error.
+
+\paragraph{6. Salida de la solución.}
+
+El algoritmo devuelve como resultado final una configuración articular $\mathbf{q}$ que, idealmente, permite alcanzar la posición deseada dentro del margen de tolerancia. En caso de que ninguna solución cumpla con la tolerancia, se retorna la mejor aproximación encontrada.
+
+Para ver los resultados, ir al \autoref{fig:cinematicaInversaFinal} o al apartado de  \autoref{chap:resultados}: Resultados.

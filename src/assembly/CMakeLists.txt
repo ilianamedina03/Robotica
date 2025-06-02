@@ -1,6 +1,6 @@
-cmake_minimum_required(VERSION 2.8.3)
-
-project(assembly)
+cmake_minimum_required(VERSION 3.0.2)
+cmake_policy(SET CMP0048 NEW)
+project(assembly VERSION 1.0.0)
 
 find_package(catkin REQUIRED COMPONENTS
 	message_generation
